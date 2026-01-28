@@ -1,0 +1,22 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import type { ButtonHTMLAttributes } from 'react';
+import clsx from 'clsx';
+
+export function Button({ className, children, ...props }: ButtonHTMLAttributes<HTMLButtonElement>) {
+  return (
+    <motion.button
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      className={clsx(
+        'rounded-full bg-winamax-red px-5 py-2 text-sm font-semibold text-white shadow-glow transition',
+        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-winamax-red',
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </motion.button>
+  );
+}
